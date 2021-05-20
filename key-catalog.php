@@ -1,4 +1,6 @@
 <?php
+include 'header.php';
+
 $briquet=[
     "name"=>"briquet",
     "price"=> 2,
@@ -51,3 +53,7 @@ $tabac_a_rouler=[
     <?php echo '<img src="'.$tabac_a_rouler["picture"].'" alt="" width="200">';?>
 </ul>
 </html>
+
+<?php
+include 'footer.php';
+?>
