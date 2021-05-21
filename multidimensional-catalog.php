@@ -28,7 +28,7 @@ $products = [
 
 <html lang="fr">
 <div class="container">
-<div class="row-align-item-center">
+<div class="row">
     <div class="col">
     <ul>
     <li>Nom:<?php echo $products["briquet"]["name"]?></li>
@@ -38,6 +38,7 @@ $products = [
 <?php echo '<img src="'.$products["briquet"]["picture"].'" alt="" width="200">';?>
 </ul>
     </div>
+    <div class="col">
 <ul>
     <li>Nom:<?php echo $products["cigarettes"]["name"]?></li>
     <li>Prix:<?php echo $products["cigarettes"]["price"]?> euros</li>
@@ -45,7 +46,8 @@ $products = [
     <li>Reduction:<?php echo $products["cigarettes"]["discount"]?> %</li>
     <?php echo '<img src="'.$products["cigarettes"]["picture"].'" alt="" width="200">';?>
 </ul>
-
+    </div>
+    <div class="col">
 <ul>
     <li>Nom:<?php echo $products["tabac_a_rouler"]["name"]?></li>
     <li>Prix:<?php echo $products["tabac_a_rouler"]["price"]?> euros</li>
@@ -53,6 +55,7 @@ $products = [
     <li>Reduction:<?php echo $products["tabac_a_rouler"]["discount"]?> %</li>
     <?php echo '<img src="'.$products["tabac_a_rouler"]["picture"].'" alt="" width="200">';?>
 </ul>
+    </div>
 </div>
 </div>
 
