@@ -28,7 +28,7 @@ $products = [
 
 <html lang="fr">
 <div class="container">
-<div class="row">
+<div class="row-align-item-center">
     <div class="col">
     <ul>
     <li>Nom:<?php echo $products["briquet"]["name"]?></li>
