@@ -1,8 +1,11 @@
 <?php
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+
 include 'header.php';
 
-$products=["briquet","cigarettes","tabac à rouler"];
+$products=[ | E_WARNING];
 sort($products);
 print_r($products);
 
@@ -11,7 +14,7 @@ $last_item=end($products);
 echo $first_item ."<br/>". $last_item . '<br/>';
 echo "$products[0]\n" . "<br/>";
 
-echo "debut while" . "<br/>";
+echo "<h2>debut while</h2>" . "<br/>";
 $index=0;
 while($index < count($products))
 {
@@ -21,21 +24,21 @@ while($index < count($products))
     echo "$product" . "<br/>". "<br/>";
 }
 
-echo "debut do while" . "<br/>";
+echo "<h2>debut do while</h2>" . "<br/>";
 $index=0;
 do{
     $product = $products[$index];
     $index++;
-    echo $product . "<br/>". "<br/>";
+    echo $product . $index. count($products) . "<br/>". "<br/>";
 }
 while($index < count($products));
 
-echo "debut for" . "<br/>";
+echo "<h2>debut for</h2>" . "<br/>";
 for($i=0; $i<count ($products); $i++)
 {
     echo "$products[$i]" . "<br/>". "<br/>";}
 
-echo "debut for each" . "<br/>";
+echo "<h2>debut for each</h2>" . "<br/>";
 foreach($products as $product){
     echo $product . "<br/>". "<br/>";
 }

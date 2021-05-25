@@ -62,7 +62,7 @@ $products = [
 </div>
 
 <?php
-echo "debut foreach" . "<br/>";
+echo "<h2>debut foreach</h2>" . "<br/>";
 foreach($products as $product=>$liste_info){
     echo $product . "\n" . "<br/>" . "<br/>";
     foreach($liste_info as $info){
@@ -71,7 +71,7 @@ foreach($products as $product=>$liste_info){
 }
 
 
-echo "debut for" . "<br/>";
+echo "<h2>debut for</h2>" . "<br/>";
 $keys=array_keys($products);
 for($i=0; $i<count($products);$i++){
     echo $keys[$i]. "\n" . "<br/>" . "<br/>";
@@ -80,7 +80,24 @@ for($i=0; $i<count($products);$i++){
     }
 }
 
-echo "<h2>debut while</h2>"  . "<br/>";
+echo "<h2>for avec mise en page</h2>";
+$keys=array_keys($products); ?>
+<div class="container">
+    <div class="row">
+<?php for($index=0; $index<count($products);$index++){ ?>
+<div class="col">
+        <ul><?php echo $keys[$index] .":" ."<br/>";?>
+        <li><?php echo "name: " . $products[$keys[$index]]["name"]. "<br/>";?></li>
+     <li><?php echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";?></li>
+     <li><?php echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";?></li>
+        <li><?php echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";?></li></ul>
+        <?php echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";?>
+</div>
+    <?php } ?> </div></div>
+
+
+
+<?php echo "<h2>debut while</h2>"  . "<br/>";
 $i=0;
 while($i < count($products))
 {
@@ -93,38 +110,52 @@ while($i < count($products))
 
     }$i++;
 }
+?>
 
 
 
-echo "<h2>debut while3</h2>" . "<br/>";
+ <?php echo "<h2>debut while3</h2>" . "<br/>";
 
 $keys=array_keys($products);
 $values=array_values($products);
 
-$index=0;
-while ($index < count($products)){
+$index=0;?>
+<div class="container">
+    <div class="row">
+<?php while ($index < count($products)) {?>
 
-    echo $keys[$index] .":" ."<br/>";
-     echo "name: " . $products[$keys[$index]]["name"]. "<br/>";
-     echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";
-     echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";
-     echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";
-     echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";
-    $index ++;
+    <div class="col">
+        <ul><?php echo $keys[$index] .":" ."<br/>";?>
+        <li><?php echo "name: " . $products[$keys[$index]]["name"]. "<br/>";?></li>
+     <li><?php echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";?></li>
+     <li><?php echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";?></li>
+        <li><?php echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";?></li></ul>
+        <?php echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";?>
+    </div>
+    <?php $index ++;
 }
+     ?></div></div>
 
-echo "<h2>debut do while</h2>" . "<br/>";
+
+<?php echo "<h2>debut do while</h2>" . "<br/>";
 $keys=array_keys($products);
 $index=0;
-do{
-    echo "name: " . $products[$keys[$index]]["name"]. "<br/>";
-    echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";
-    echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";
-    echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";
-    echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";
+?>
+<div class="container">
+    <div class="row">
+<?php do{ ?>
+
+    <div class="col">
+        <ul><li><?php echo "name: " . $products[$keys[$index]]["name"]. "<br/>";?></li>
+    <li><?php echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";?></li>
+    <li><?php echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";?></li>
+            <li><?php echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";?></li></ul>
+    <?php echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";?>
+    </div>
+    <?php
     $index++;
 }while ($index < count($products));
-?>
+?></div></div>
 
 
 </html>
