@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include 'my-functions.php'
 
 $name="pinte de biere";
 $prix="10 euros";

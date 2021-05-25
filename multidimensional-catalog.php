@@ -1,5 +1,6 @@
 <?php
 include 'header.php';
+include 'my-functions.php';
 
 $products = [
     "briquet" =>[
@@ -32,7 +33,7 @@ $products = [
     <div class="col">
     <ul>
     <li>Nom:<?php echo $products["briquet"]["name"]?></li>
-<li>Prix:<?php echo $products["briquet"]["price"]?> euros</li>
+<li>Prix:<?php formatPrice( $products["briquet"]["price"])?> euros</li>
 <li>Poids:<?php echo $products["briquet"]["weight"]?> grammes</li>
 <li>Reduction:<?php echo $products["briquet"]["discount"]?> %</li>
 </ul>
@@ -42,7 +43,7 @@ $products = [
     <div class="col">
 <ul>
     <li>Nom:<?php echo $products["cigarettes"]["name"]?></li>
-    <li>Prix:<?php echo $products["cigarettes"]["price"]?> euros</li>
+    <li>Prix:<?php formatPrice($products["cigarettes"]["price"])?> euros</li>
     <li>Poids:<?php echo $products["cigarettes"]["weight"]?> grammes</li>
     <li>Reduction:<?php echo $products["cigarettes"]["discount"]?> %</li>
 </ul>
@@ -52,7 +53,7 @@ $products = [
     <div class="col">
 <ul>
     <li>Nom:<?php echo $products["tabac_a_rouler"]["name"]?></li>
-    <li>Prix:<?php echo $products["tabac_a_rouler"]["price"]?> euros</li>
+    <li>Prix:<?php formatPrice($products["tabac_a_rouler"]["price"])?> euros</li>
     <li>Poids:<?php echo $products["tabac_a_rouler"]["weight"]?> grammes</li>
     <li>Reduction:<?php echo $products["tabac_a_rouler"]["discount"]?> %</li>
 </ul>
@@ -88,7 +89,7 @@ $keys=array_keys($products); ?>
 <div class="col">
         <ul><?php echo $keys[$index] .":" ."<br/>";?>
         <li><?php echo "name: " . $products[$keys[$index]]["name"]. "<br/>";?></li>
-     <li><?php echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";?></li>
+     <li><?php formatPrice($products[$keys[$index]]["price"]) . "<br/>";?></li>
      <li><?php echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";?></li>
         <li><?php echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";?></li></ul>
         <?php echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";?>
@@ -127,7 +128,7 @@ $index=0;?>
     <div class="col">
         <ul><?php echo $keys[$index] .":" ."<br/>";?>
         <li><?php echo "name: " . $products[$keys[$index]]["name"]. "<br/>";?></li>
-     <li><?php echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";?></li>
+     <li><?php formatPrice($products[$keys[$index]]["price"]) . "<br/>";?></li>
      <li><?php echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";?></li>
         <li><?php echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";?></li></ul>
         <?php echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";?>
@@ -147,7 +148,7 @@ $index=0;
 
     <div class="col">
         <ul><li><?php echo "name: " . $products[$keys[$index]]["name"]. "<br/>";?></li>
-    <li><?php echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";?></li>
+    <li><?php formatPrice($products[$keys[$index]]["price"]) . "<br/>";?></li>
     <li><?php echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";?></li>
             <li><?php echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";?></li></ul>
     <?php echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";?>
