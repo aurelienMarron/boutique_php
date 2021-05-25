@@ -80,35 +80,50 @@ for($i=0; $i<count($products);$i++){
     }
 }
 
-echo "debut while" . "<br/>";
+echo "<h2>debut while</h2>"  . "<br/>";
 $i=0;
 while($i < count($products))
 {
-    $i++;
     echo $keys[$i]. "\n" . "<br/>" . "<br/>";
+
     foreach($products[$keys[$i]] as $key => $value){
+        echo "aze/";
+        echo $keys[$i]. "\n" ;
         echo $key .":" . $value."<br/>";
-    }
+
+    }$i++;
 }
 
-echo "debut while2" . "<br/>";
-$index =0;
-$index2=0;
-while ($index < count($products)) {
 
-    $keys =array_keys($products);
-    $affichage = $keys[$index];
-    echo $affichage. "\n" . "<br/>"."<br/>";
+
+echo "<h2>debut while3</h2>" . "<br/>";
+
+$keys=array_keys($products);
+$values=array_values($products);
+
+$index=0;
+while ($index < count($products)){
+
+    echo $keys[$index] .":" ."<br/>";
+     echo "name: " . $products[$keys[$index]]["name"]. "<br/>";
+     echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";
+     echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";
+     echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";
+     echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";
+    $index ++;
+}
+
+echo "<h2>debut do while</h2>" . "<br/>";
+$keys=array_keys($products);
+$index=0;
+do{
+    echo "name: " . $products[$keys[$index]]["name"]. "<br/>";
+    echo "prix: ".$products[$keys[$index]]["price"] . "<br/>";
+    echo "poids: ".$products[$keys[$index]]["weight"] . "<br/>";
+    echo "remise: ".$products[$keys[$index]]["discount"] . "<br/>";
+    echo '<img src="'.$products[$keys[$index]]["picture"].'" alt="" width="200">'. "<br/>";
     $index++;
-    while ($index2 < count($products[$affichage])) {
-
-        $values = array_values($products[$affichage]);
-        $affichage2 = $values[$index2];
-        echo $affichage2 . "\n" . "<br/>" . "<br/>";
-        $index2++;
-    }
-}
-
+}while ($index < count($products));
 ?>
 
 
