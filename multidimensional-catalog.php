@@ -34,8 +34,10 @@ $products = [
     <ul>
     <li>Nom:<?php echo $products["briquet"]["name"]?></li>
 <li>Prix:<?php formatPrice( $products["briquet"]["price"])?> euros</li>
+        <li>PrixHT: <?php formatPrice(priceExludingVAT($products["briquet"]["price"])) ;?> HT</li>
 <li>Poids:<?php echo $products["briquet"]["weight"]?> grammes</li>
 <li>Reduction:<?php echo $products["briquet"]["discount"]?> %</li>
+        <li>Prix remisé:<?php formatPrice(displayDicountedPrice($products["briquet"]["price"],$products["briquet"]["discount"]));?></li>
 </ul>
         <img src='<?php echo $products["briquet"]["picture"] ?>' alt="" width="200"';/>
     </div>
@@ -44,8 +46,10 @@ $products = [
 <ul>
     <li>Nom:<?php echo $products["cigarettes"]["name"]?></li>
     <li>Prix:<?php formatPrice($products["cigarettes"]["price"])?> euros</li>
+    <li>PrixHT: <?php formatPrice(priceExludingVAT($products["cigarettes"]["price"])) ;?> HT</li>
     <li>Poids:<?php echo $products["cigarettes"]["weight"]?> grammes</li>
     <li>Reduction:<?php echo $products["cigarettes"]["discount"]?> %</li>
+    <li>Prix remisé:<?php formatPrice(displayDicountedPrice($products["cigarettes"]["price"],$products["cigarettes"]["discount"]));?></li>
 </ul>
         <img src='<?php echo $products["cigarettes"]["picture"] ?>' alt="" width="200"';/>
     </div>
@@ -54,8 +58,10 @@ $products = [
 <ul>
     <li>Nom:<?php echo $products["tabac_a_rouler"]["name"]?></li>
     <li>Prix:<?php formatPrice($products["tabac_a_rouler"]["price"])?> euros</li>
+    <li>PrixHT: <?php formatPrice(priceExludingVAT($products["tabac_a_rouler"]["price"])) ;?> HT</li>
     <li>Poids:<?php echo $products["tabac_a_rouler"]["weight"]?> grammes</li>
     <li>Reduction:<?php echo $products["tabac_a_rouler"]["discount"]?> %</li>
+    <li>Prix remisé:<?php formatPrice(displayDicountedPrice($products["tabac_a_rouler"]["price"],$products["tabac_a_rouler"]["discount"]));?></li>
 </ul>
         <img src='<?php echo $products["tabac_a_rouler"]["picture"] ?>' alt="" width="200"';/>
     </div>
