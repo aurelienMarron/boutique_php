@@ -6,7 +6,7 @@ ini_set('display_startup_errors', 1);
 include 'header.php';
 include 'my-functions.php';
 
-$products=[ | E_WARNING];
+$products=["briquet","cigarettes","tabac à rouler"];
 sort($products);
 print_r($products);
 
