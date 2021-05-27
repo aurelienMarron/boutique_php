@@ -2,7 +2,8 @@
 $prix=0.00;
 
 function formatPrice($prix){
-    echo "le prix est de ". number_format($prix,2) . " euros";
+    $prix_euro=$prix/100;
+    echo "le prix est de ". number_format($prix_euro,2) . " euros";
 }
 
 function priceExludingVAT($prix){
@@ -12,3 +13,6 @@ function priceExludingVAT($prix){
 function displayDicountedPrice($prix,$discount){
     return $prix-($prix/100 *$discount);}
 
+function totalCommande($prix,$quantite){
+    return $prix*$quantite;
+}
