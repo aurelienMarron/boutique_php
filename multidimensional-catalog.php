@@ -40,6 +40,12 @@ $products = [
         <li>Prix remisé:<?php formatPrice(displayDicountedPrice($products["briquet"]["price"],$products["briquet"]["discount"]));?></li>
 </ul>
         <img src='<?php echo $products["briquet"]["picture"] ?>' alt="" width="200"';/>
+        <form method="post" action="cart.php">
+        <label>
+            <input type="number" name="quantité" placeholder="Combien t'en veux?" min="0">
+        </label>
+        <button type="submit" class="btn btn-dark btn-outline-light">Passe ta commande</button>
+        </form>
     </div>
 
     <div class="col">
@@ -52,6 +58,12 @@ $products = [
     <li>Prix remisé:<?php formatPrice(displayDicountedPrice($products["cigarettes"]["price"],$products["cigarettes"]["discount"]));?></li>
 </ul>
         <img src='<?php echo $products["cigarettes"]["picture"] ?>' alt="" width="200"';/>
+        <form method="post" action="cart.php">
+        <label>
+            <input type="number" name="quantité" placeholder="Combien t'en veux?" min="0">
+        </label>
+        <button type="submit" class="btn btn-dark btn-outline-light">Passe ta commande</button>
+        </form>
     </div>
 
     <div class="col">
@@ -64,9 +76,17 @@ $products = [
     <li>Prix remisé:<?php formatPrice(displayDicountedPrice($products["tabac_a_rouler"]["price"],$products["tabac_a_rouler"]["discount"]));?></li>
 </ul>
         <img src='<?php echo $products["tabac_a_rouler"]["picture"] ?>' alt="" width="200"';/>
+        <form method="post" action="cart.php">
+        <label>
+            <input type="number" name="quantité" placeholder="Combien t'en veux?" min="0">
+        </label>
+        <button type="submit" class="btn btn-dark btn-outline-light">Passe ta commande</button>
+        </form>
     </div>
 </div>
 </div>
+
+
 
 <?php
 echo "<h2>debut foreach</h2>" . "<br/>";
