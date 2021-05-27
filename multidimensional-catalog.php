@@ -95,6 +95,7 @@ foreach($products as $product=>$liste_info){
                 <input type="hidden" name="nom_produit" value="<?php echo $product;?>">
                 <input type="hidden" name="prix_produit" value="<?php echo $liste_info["price"];?>">
                 <input type="hidden" name="discount_produit" value="<?php echo $liste_info["discount"];?>">
+                <input type="hidden" name="poids_produit" value="<?php echo $liste_info["weight"];?>">
                 <input type="number" name="quantite" placeholder="Combien t'en veux?" min="0">
             </label>
             <button type="submit" class="btn btn-dark btn-outline-light">Passe ta commande</button>

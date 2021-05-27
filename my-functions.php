@@ -16,3 +16,7 @@ function displayDicountedPrice($prix,$discount){
 function totalCommande($prix,$quantite){
     return $prix*$quantite;
 }
+
+function weightCommande($quantite,$weight){
+    return $quantite*$weight;
+}

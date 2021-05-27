@@ -47,6 +47,22 @@ include 'my-functions.php';
         <th>TVA</th>
         <th>20%</th>
     </tr>
+    <tr><th><p>CHOIX DU TRANSPORTEUR</p></th>
+    <th><select name="choix_transporteur">
+        <option value="ups">UPS</option>
+        <option value="chronoposte">Chronoposte</option>
+    </select>
+        </th>
+        <th><button type="submit" class="btn btn-dark btn-outline-light">VALIDER</button></th>
+    </tr>
+
+    <tr>
+        <th scope="row"></th>
+        <th></th>
+        <th>FRAIS DE PORT</th>
+        <th></th>
+    </tr>
+
     <tr>
         <th scope="row"></th>
         <th></th>
