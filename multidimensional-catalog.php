@@ -42,7 +42,7 @@ $products = [
         <img src='<?php echo $products["briquet"]["picture"] ?>' alt="" width="200"';/>
         <form method="post" action="cart.php">
         <label>
-            <input type="number" name="quantite" placeholder="Combien t'en veux?" min="0">
+            <input type="number" name="quantite"  min="0">
         </label>
         <button type="submit" class="btn btn-dark btn-outline-light">Passe ta commande</button>
         </form>

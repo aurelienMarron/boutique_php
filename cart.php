@@ -1,4 +1,9 @@
 <?php
+if (!is_numeric($_POST["quantite"]) or !is_int((int)$_POST["quantite"]) or $_POST["quantite"]===0){
+        header('Location:http://localhost/boutique_php/redirection.php',true,301);
+    exit();
+    }
+
 include 'my-functions.php';
 $poidsCommande=0;
 $coutcommande=totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"]);
@@ -8,12 +13,6 @@ $megaTotal=$coutcommande+$montant_fraisdeport;
 
 <html lang="fr">
 <head>
-    <?php
-    if ((is_numeric($_POST["quantite"])==FALSE) or (is_int($_POST["quantite"])==FALSE) or ($_POST["quantite"]!==0)){
-        header('Location:http://localhost/boutique_php/redirection.php');
-        exit();
-    }
-    ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
