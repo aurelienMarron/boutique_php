@@ -2,12 +2,18 @@
 include 'my-functions.php';
 $poidsCommande=0;
 $coutcommande=totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"]);
-$montant_fraisdeport=fraisdeport_ups($coutcommande);
+$montant_fraisdeport=0;
 $megaTotal=$coutcommande+$montant_fraisdeport;
 ?>
 
 <html lang="fr">
 <head>
+    <?php
+    if ((is_numeric($_POST["quantite"])==FALSE) or (is_int($_POST["quantite"])==FALSE) or ($_POST["quantite"]!==0)){
+        header('Location:http://localhost/boutique_php/redirection.php');
+        exit();
+    }
+    ?>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
@@ -49,7 +55,7 @@ $megaTotal=$coutcommande+$montant_fraisdeport;
         <th scope="row"></th>
         <th></th>
         <th>TVA</th>
-        <th>20%</th>
+        <th><?php formatPrice($coutcommande-priceExludingVAT(totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"])));?></th>
     </tr>
     <tr><th><p>CHOIX DU TRANSPORTEUR</p></th>
     <th><form method="post" action="cart.php">
@@ -69,8 +75,12 @@ $megaTotal=$coutcommande+$montant_fraisdeport;
         <th></th>
         <th>FRAIS DE PORT</th>
         <th><?php
-            formatPrice(fraisdeport_ups($coutcommande));
-        ?> </th>
+            /*if($_POST("choix_transporteur")==="ups"){
+                 return $montant_fraisdeport=fraisdeport_ups($coutcommande);}
+            elseif($_POST("choix_transporteur")==="chronoposte"){
+                return $montant_fraisdeport=fraisdeport_chronopost($coutcommande);
+            } formatPrice($montant_fraisdeport);
+       */ ?> </th>
     </tr>
 
     <tr>
