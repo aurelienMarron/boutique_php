@@ -1,5 +1,9 @@
 <?php
 include 'my-functions.php';
+$poidsCommande=0;
+$coutcommande=totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"]);
+$montant_fraisdeport=fraisdeport_ups($coutcommande);
+$megaTotal=$coutcommande+$montant_fraisdeport;
 ?>
 
 <html lang="fr">
@@ -48,10 +52,14 @@ include 'my-functions.php';
         <th>20%</th>
     </tr>
     <tr><th><p>CHOIX DU TRANSPORTEUR</p></th>
-    <th><select name="choix_transporteur">
-        <option value="ups">UPS</option>
-        <option value="chronoposte">Chronoposte</option>
-    </select>
+    <th><form method="post" action="cart.php">
+            <label>
+                <select name="choix_transporteur">
+            <option value="ups">UPS</option>
+            <option value="chronoposte">Chronoposte</option>
+        </select>
+            </label>
+        </form>
         </th>
         <th><button type="submit" class="btn btn-dark btn-outline-light">VALIDER</button></th>
     </tr>
@@ -60,14 +68,16 @@ include 'my-functions.php';
         <th scope="row"></th>
         <th></th>
         <th>FRAIS DE PORT</th>
-        <th></th>
+        <th><?php
+            formatPrice(fraisdeport_ups($coutcommande));
+        ?> </th>
     </tr>
 
     <tr>
         <th scope="row"></th>
         <th></th>
         <th>TOTAL TTC</th>
-        <th><?php formatPrice(totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"]));?></th>
+        <th><?php formatPrice($megaTotal);?></th>
     </tr>
 
 
