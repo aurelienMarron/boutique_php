@@ -18,13 +18,13 @@ function totalCommande($prix,$quantite){
     return $prix*$quantite;
 }
 
-function weightCommande($quantite,$weight){
-    return $quantite*$weight;
+function weightCommande( $quantite, $weight){
+    return (int)$quantite*$weight;
 }
 
-function fraisdeport_ups($coutcommande){
+function fraisdeport_ups( $coutcommande){
 if (weightCommande($_POST["poids_produit"],$_POST["quantite"])<=500){
-    return 500;
+    return 5;
 }
 elseif (weightCommande($_POST["poids_produit"],$_POST["quantite"])>500 && weightCommande($_POST["poids_produit"],$_POST["quantite"])<=2000){
     return $coutcommande/10;
@@ -41,7 +41,7 @@ function fraisdeport_chronopost($coutcommande){
         return $coutcommande/20;
     }
     elseif (weightCommande($_POST["poids_produit"],$_POST["quantite"])>2000){
-        return 2000;
+        return 20;
     }}
 
 function coutdelaTVA($coutcommande,$totalHT){
