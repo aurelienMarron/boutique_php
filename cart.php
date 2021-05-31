@@ -1,21 +1,32 @@
 <?php
-if (!is_numeric($_POST["quantite"]) or !is_int((int)$_POST["quantite"]) or $_POST["quantite"]===0){
-        header('Location:http://localhost/boutique_php/redirection.php',true,301);
-    exit();
-    }
+session_start();
+$_SESSION['produit']=$_POST["info_produit"];
+$_SESSION['quantite']= $_POST["quantite"];
+$_SESSION["choix_transporteur"]= $_POST["choix_transporteur"];
+
+//if (!is_numeric($_POST["quantite"]) or !is_int((int)$_POST["quantite"]) or $_POST["quantite"]===0){
+  //      header('Location:http://localhost/boutique_php/redirection.php',true,301);
+    //exit();
+    //}
+
+
+
+
+
+
 
 include 'my-functions.php';
 include 'catalogue.php';
 
 global $products;
 $poidsCommande=0;
-$prixremis=displayDicountedPrice($products[$_POST["info_produit"]]["price"],$products[$_POST["info_produit"]]["discount"]);
+$product = $products[$_POST["info_produit"]];
+$prixremis=displayDicountedPrice($product["price"], $product["discount"]);
 $coutcommande=totalCommande($prixremis,$_POST["quantite"]);
-$weight=$products[$_POST["info_produit"]]["weight"];
+$weight= $product["weight"];
 $montant_fraisdeport=0;
 $megaTotal=$coutcommande+$montant_fraisdeport;
 $nomproduit=$_POST["info_produit"];
-//$_POST["choix_transporteur"]="non defini";
 ?>
 
 <html lang="fr">
@@ -46,10 +57,10 @@ $nomproduit=$_POST["info_produit"];
     </tr>
     </thead>
     <tr>
-
-        <th scope="row"><?php echo $products[$_POST["info_produit"]]["name"];?></th>
+        <?php var_dump($products[$_SESSION['produit']]);?>
+        <th scope="row"><?php echo $products[$_POST['info_produit']]["name"];?></th>
         <th><?php echo $prixremis;?></th>
-        <th><?php echo $_POST["quantite"];?></th>
+        <th><?php echo $products[$_POST['info_produit']]['quantite'];?></th>
         <th><?php echo $coutcommande;?></th>
     </tr>
     <tr>

@@ -1,11 +1,14 @@
 <?php
+session_start();
+
 include 'header.php';
 include 'my-functions.php';
 include 'catalogue.php';
-
+global $products;
 ?>
 
 <html lang="fr">
+<a href="cart.php">&laquo; Retour à ta commande</a>
 <div class="container">
 <div class="row">
     <div class="col">

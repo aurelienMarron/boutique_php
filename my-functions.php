@@ -31,7 +31,7 @@ elseif (weightCommande($weight,$_POST["quantite"])>500 && weightCommande($_POST[
 }
 elseif (weightCommande($weight,$_POST["quantite"])>2000){
     return 0;
-} }
+}}
 
 function fraisdeport_chronopost($coutcommande,$weight){
     if (weightCommande($weight,$_POST["quantite"])<=500){
@@ -48,8 +48,3 @@ function coutdelaTVA($coutcommande,$totalHT){
 return $coutcommande-$totalHT;
 }
 
-function choixfait($choixtransporteur){
-    if ($choixtransporteur==="ups" or $choixtransporteur==="chronopost"){
-        return true;
-    }
-}
