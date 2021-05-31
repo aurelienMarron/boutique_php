@@ -40,21 +40,21 @@ $megaTotal=$coutcommande+$montant_fraisdeport;
     </thead>
     <tr>
         <th scope="row"><?php echo $_POST["nom_produit"];?></th>
-        <th><?php formatPrice(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]));?></th>
+        <th><?php echo displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]);?></th>
         <th><?php echo $_POST["quantite"];?></th>
-        <th><?php formatPrice(totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"]));?></th>
+        <th><?php echo $coutcommande;?></th>
     </tr>
     <tr>
         <th scope="row"></th>
         <th></th>
         <th>TOTAL HT</th>
-        <th><?php formatPrice(priceExludingVAT(totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"])));?></th>
+        <th><?php echo priceExludingVAT($coutcommande);?></th>
     </tr>
     <tr>
         <th scope="row"></th>
         <th></th>
-        <th>TVA</th>
-        <th><?php formatPrice($coutcommande-priceExludingVAT(totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"])));?></th>
+        <th>Montant TVA</th>
+        <th><?php echo coutdelaTVA($coutcommande,priceExludingVAT($coutcommande));?></th>
     </tr>
     <tr><th><p>CHOIX DU TRANSPORTEUR</p></th>
     <th><form method="post" action="cart.php">
@@ -63,10 +63,11 @@ $megaTotal=$coutcommande+$montant_fraisdeport;
             <option value="ups">UPS</option>
             <option value="chronoposte">Chronoposte</option>
         </select>
+                <input type="hidden" name="info_formulaire" value="<?php echo $_POST;?>">
             </label>
-        </form>
+
         </th>
-        <th><button type="submit" class="btn btn-dark btn-outline-light">VALIDER</button></th>
+        <th><button type="submit" class="btn btn-dark btn-outline-light">VALIDER</button></th></form>
     </tr>
 
     <tr>
@@ -74,12 +75,14 @@ $megaTotal=$coutcommande+$montant_fraisdeport;
         <th></th>
         <th>FRAIS DE PORT</th>
         <th><?php
-            /*if($_POST("choix_transporteur")==="ups"){
-                 return $montant_fraisdeport=fraisdeport_ups($coutcommande);}
-            elseif($_POST("choix_transporteur")==="chronoposte"){
+            if($_POST["choix_transporteur"]==="ups"){
+                 return $montant_fraisdeport=fraisdeport_ups($coutcommande);
+                }
+            elseif($_POST["choix_transporteur"]==="chronoposte"){
                 return $montant_fraisdeport=fraisdeport_chronopost($coutcommande);
+
             } formatPrice($montant_fraisdeport);
-       */ ?> </th>
+        ?> </th>
     </tr>
 
     <tr>

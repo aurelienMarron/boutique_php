@@ -4,7 +4,7 @@ $prix=0.00;
 
 function formatPrice($prix){
     $prix_euro=$prix/100;
-    echo "le prix est de ". number_format($prix_euro,2) . " euros";
+    return number_format($prix_euro,2) ;
 }
 
 function priceExludingVAT($prix){
@@ -12,7 +12,7 @@ function priceExludingVAT($prix){
 }
 
 function displayDicountedPrice($prix,$discount){
-    return $prix-($prix/100 *$discount);}
+    return formatPrice($prix-($prix/100 *$discount));}
 
 function totalCommande($prix,$quantite){
     return $prix*$quantite;
@@ -43,3 +43,7 @@ function fraisdeport_chronopost($coutcommande){
     elseif (weightCommande($_POST["poids_produit"],$_POST["quantite"])>2000){
         return 2000;
     }}
+
+function coutdelaTVA($coutcommande,$totalHT){
+return $coutcommande-$totalHT;
+}
