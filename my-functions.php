@@ -22,28 +22,34 @@ function weightCommande( $quantite, $weight){
     return (int)$quantite*$weight;
 }
 
-function fraisdeport_ups( $coutcommande){
-if (weightCommande($_POST["poids_produit"],$_POST["quantite"])<=500){
+function fraisdeport_ups( $coutcommande,$weight){
+if (weightCommande($weight,$_POST["quantite"])<=500){
     return 5;
 }
-elseif (weightCommande($_POST["poids_produit"],$_POST["quantite"])>500 && weightCommande($_POST["poids_produit"],$_POST["quantite"])<=2000){
+elseif (weightCommande($weight,$_POST["quantite"])>500 && weightCommande($_POST["poids_produit"],$_POST["quantite"])<=2000){
     return $coutcommande/10;
 }
-elseif (weightCommande($_POST["poids_produit"],$_POST["quantite"])>2000){
+elseif (weightCommande($weight,$_POST["quantite"])>2000){
     return 0;
-}}
+} }
 
-function fraisdeport_chronopost($coutcommande){
-    if (weightCommande($_POST["poids_produit"],$_POST["quantite"])<=500){
+function fraisdeport_chronopost($coutcommande,$weight){
+    if (weightCommande($weight,$_POST["quantite"])<=500){
         return 0;
     }
-    elseif (weightCommande($_POST["poids_produit"],$_POST["quantite"])>500 && weightCommande($_POST["poids_produit"],$_POST["quantite"])<=2000){
+    elseif (weightCommande($weight,$_POST["quantite"])>500 && weightCommande($_POST["poids_produit"],$_POST["quantite"])<=2000){
         return $coutcommande/20;
     }
-    elseif (weightCommande($_POST["poids_produit"],$_POST["quantite"])>2000){
+    elseif (weightCommande($weight,$_POST["quantite"])>2000){
         return 20;
     }}
 
 function coutdelaTVA($coutcommande,$totalHT){
 return $coutcommande-$totalHT;
+}
+
+function choixfait($choixtransporteur){
+    if ($choixtransporteur==="ups" or $choixtransporteur==="chronopost"){
+        return true;
+    }
 }

@@ -5,12 +5,17 @@ if (!is_numeric($_POST["quantite"]) or !is_int((int)$_POST["quantite"]) or $_POS
     }
 
 include 'my-functions.php';
+include 'catalogue.php';
+
+global $products;
 $poidsCommande=0;
-$coutcommande=totalCommande(displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]),$_POST["quantite"]);
+$prixremis=displayDicountedPrice($products[$_POST["info_produit"]]["price"],$products[$_POST["info_produit"]]["discount"]);
+$coutcommande=totalCommande($prixremis,$_POST["quantite"]);
+$weight=$products[$_POST["info_produit"]]["weight"];
 $montant_fraisdeport=0;
 $megaTotal=$coutcommande+$montant_fraisdeport;
-$nomproduit=$_POST["nom_produit"];
-$_POST["choix_transporteur"]="nondefini";
+$nomproduit=$_POST["info_produit"];
+//$_POST["choix_transporteur"]="non defini";
 ?>
 
 <html lang="fr">
@@ -41,8 +46,9 @@ $_POST["choix_transporteur"]="nondefini";
     </tr>
     </thead>
     <tr>
-        <th scope="row"><?php echo $_POST["nom_produit"];?></th>
-        <th><?php echo displayDicountedPrice($_POST["prix_produit"],$_POST["discount_produit"]);?></th>
+
+        <th scope="row"><?php echo $products[$_POST["info_produit"]]["name"];?></th>
+        <th><?php echo $prixremis;?></th>
         <th><?php echo $_POST["quantite"];?></th>
         <th><?php echo $coutcommande;?></th>
     </tr>
@@ -65,10 +71,7 @@ $_POST["choix_transporteur"]="nondefini";
             <option value="ups">UPS</option>
             <option value="chronoposte">Chronoposte</option>
         </select>
-                <input type="hidden" name="nom_produit" value="<?php echo $nomproduit;?>">
-                <input type="hidden" name="prix_produit" value="<?php echo $_POST["prix_produit"];?>">
-                <input type="hidden" name="discount_produit" value="<?php echo $_POST["discount_produit"];?>">
-                <input type="hidden" name="poids_produit" value="<?php echo $_POST["weight"];?>">
+                <input type="hidden" name="info_produit" value="<?php echo $_POST["info_produit"];?>">
                 <input type="hidden" name="quantite" value="<?php echo $_POST["quantite"];?>">
             </label>
 
@@ -81,17 +84,22 @@ $_POST["choix_transporteur"]="nondefini";
         <th></th>
         <th>FRAIS DE PORT</th>
         <th><?php
-            if($_POST["choix_transporteur"]==="nondefini"){
-                echo " ";
-            }
-            elseif($_POST["choix_transporteur"]==="ups"){
-                 echo $montant_fraisdeport=fraisdeport_ups($coutcommande);
+
+                if($_POST["choix_transporteur"]==="ups"){
+                    echo $montant_fraisdeport=fraisdeport_ups($coutcommande,$weight);
 
                 }
-            elseif($_POST["choix_transporteur"]==="chronoposte"){
-                echo $montant_fraisdeport=fraisdeport_chronopost($coutcommande);
+                elseif($_POST["choix_transporteur"]==="chronoposte"){
+                    echo $montant_fraisdeport=fraisdeport_chronopost($coutcommande,$weight);
 
-            }
+                }
+                elseif($_POST["choix_transporteur"]==="non defini"){
+                   echo " ";
+                }
+
+
+
+
         ?> </th>
     </tr>
 
@@ -100,11 +108,11 @@ $_POST["choix_transporteur"]="nondefini";
         <th></th>
         <th>TOTAL TTC</th>
         <th><?php if($_POST["choix_transporteur"]==="ups"){
-                echo $coutcommande+fraisdeport_ups($coutcommande);
+                echo $coutcommande+fraisdeport_ups($coutcommande,$weight);
 
             }
             elseif($_POST["choix_transporteur"]==="chronoposte"){
-                echo $coutcommande+fraisdeport_chronopost($coutcommande);
+                echo $coutcommande+fraisdeport_chronopost($coutcommande,$weight);
 
             }?></th>
     </tr>
