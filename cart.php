@@ -60,7 +60,7 @@ $nomproduit=$_POST["info_produit"];
         <?php var_dump($products[$_SESSION['produit']]);?>
         <th scope="row"><?php echo $products[$_POST['info_produit']]["name"];?></th>
         <th><?php echo $prixremis;?></th>
-        <th><?php echo $products[$_POST['info_produit']]['quantite'];?></th>
+        <th><?php echo $_POST['quantite'];?></th>
         <th><?php echo $coutcommande;?></th>
     </tr>
     <tr>

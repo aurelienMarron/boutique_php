@@ -26,7 +26,7 @@ function fraisdeport_ups( $coutcommande,$weight){
 if (weightCommande($weight,$_POST["quantite"])<=500){
     return 5;
 }
-elseif (weightCommande($weight,$_POST["quantite"])>500 && weightCommande($_POST["poids_produit"],$_POST["quantite"])<=2000){
+elseif (weightCommande($weight,$_POST["quantite"])>500 && weightCommande($weight,$_POST["quantite"])<=2000){
     return $coutcommande/10;
 }
 elseif (weightCommande($weight,$_POST["quantite"])>2000){
@@ -37,7 +37,7 @@ function fraisdeport_chronopost($coutcommande,$weight){
     if (weightCommande($weight,$_POST["quantite"])<=500){
         return 0;
     }
-    elseif (weightCommande($weight,$_POST["quantite"])>500 && weightCommande($_POST["poids_produit"],$_POST["quantite"])<=2000){
+    elseif (weightCommande($weight,$_POST["quantite"])>500 && weightCommande($weight,$_POST["quantite"])<=2000){
         return $coutcommande/20;
     }
     elseif (weightCommande($weight,$_POST["quantite"])>2000){
