@@ -1,23 +1,24 @@
 <?php
 function bddconnect(){
-    return  $bdd = new PDO('mysql:host=localhost;dbname=boutique_ilot_3;charset=utf8', 'Aurelien', 'Calambrit14');
+    return   new PDO('mysql:host=localhost;dbname=boutique_ilot_3;charset=utf8', 'Aurelien', 'Calambrit14');
 }
+
+
 
 function affiche_nom_produit(){
     $bdd=bddconnect();
 $nom_produit = $bdd->query('SELECT products.name FROM products');
-while ($donnees=$nom_produit->fetch())
-{
-    echo $donnees['name'] . '<br>';
-}}
+return $nom_produit->fetchAll(Pdo::FETCH_ASSOC);}
+
+
+
 
 function produitenrupture(){
     $bdd=bddconnect();
 $produit_rupture = $bdd->query('SELECT `products`.`name`, `products`.`quantity` FROM `products` WHERE `products`.`quantity` = 0');
-while($donnees=$produit_rupture->fetch())
-{
-    echo $donnees['name'] .' est en rutpure de stock' . '<br>';
-}}
+return $produit_rupture->fetchAll(Pdo::FETCH_ASSOC);}
+
+
 
 function totalcmd(){
     $bdd=bddconnect();

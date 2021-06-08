@@ -64,13 +64,16 @@ $tabac_a_rouler=[
 </ul>
 
 <?php
-affiche_nom_produit();
-foreach($donnees as $donnee){
-    echo $donnee . '<br>';
+
+foreach(affiche_nom_produit() as $produit){
+   echo $produit['name'] . '<br>';
 }
 
 
-produitenrupture();
+foreach(produitenrupture()as $produit){
+    echo '<br>' . $produit['name'] . ' est en rupture' . '<br>';
+}
+
 
 totalcmd();
 ?>
