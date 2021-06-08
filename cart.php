@@ -4,10 +4,10 @@ $_SESSION['produit']=$_POST["info_produit"];
 $_SESSION['quantite']= $_POST["quantite"];
 $_SESSION["choix_transporteur"]= $_POST["choix_transporteur"];
 
-//if (!is_numeric($_POST["quantite"]) or !is_int((int)$_POST["quantite"]) or $_POST["quantite"]===0){
-  //      header('Location:http://localhost/boutique_php/redirection.php',true,301);
-    //exit();
-    //}
+if (!is_numeric($_POST["quantite"]) or !is_int((int)$_POST["quantite"]) or $_POST["quantite"]===0){
+        header('Location:http://localhost/boutique_php/redirection.php',true,301);
+    exit();
+    }
 
 
 

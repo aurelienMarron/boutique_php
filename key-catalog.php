@@ -1,6 +1,8 @@
 <?php
 include 'header.php';
 include 'my-functions.php';
+include 'database.php';
+$donnees=[];
 
 
 $briquet=[
@@ -60,6 +62,18 @@ $tabac_a_rouler=[
     <li>Prix remisé:<?php formatPrice(displayDicountedPrice($tabac_a_rouler["price"],$tabac_a_rouler["discount"]));?></li>
     <?php echo '<img src="'.$tabac_a_rouler["picture"].'" alt="" width="200">';?>
 </ul>
+
+<?php
+affiche_nom_produit();
+foreach($donnees as $donnee){
+    echo $donnee . '<br>';
+}
+
+
+produitenrupture();
+
+totalcmd();
+?>
 </html>
 
 <?php
