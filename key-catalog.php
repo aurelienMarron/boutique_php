@@ -63,19 +63,7 @@ $tabac_a_rouler=[
     <?php echo '<img src="'.$tabac_a_rouler["picture"].'" alt="" width="200">';?>
 </ul>
 
-<form method="post" action="key-catalog.php.php">
-    <label>
-        <input type="text" name="name" placeholder="name">
-        <input type="text" name="description" placeholder="description">
-        <input type="number" name="price"  placeholder="price" min="0">
-        <input type="number" name="weight"  placeholder="weight" min="0">
-        <input type="text" name="image" placeholder="image">
-        <input type="number" name="quantity" placeholder="quantity" min="0">
-        <input type="number" name="available" placeholder="available" min="0" max="1">
-        <input type="number" name="categorie_id" placeholder="categorie_id" min="0">
-    </label>
-    <button type="submit" class="btn btn-dark btn-outline-light">Create product</button>
-</form>
+
 
 <?php
 
@@ -83,7 +71,7 @@ foreach(affiche_nom_produit() as $produit){
    echo $produit['name'] . '<br>';
 }
 
-//creation_produit('chat','tout mignon',1500,500,'imagedechat',68,1,2);
+
 
 foreach(produitenrupture()as $produit){
     echo '<br>' . $produit['name'] . ' est en rupture' . '<br>';
