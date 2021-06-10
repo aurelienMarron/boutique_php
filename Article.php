@@ -26,7 +26,7 @@ class Article
         echo '<ul>' . '<li>' . 'Name: ' . $this->name . '</li>';
         echo '<li>' . 'Description: ' . $this->description . '</li>';
         echo '<li>' . 'Prix: ' . $this->price . '</li>';
-        echo '<li>' . 'Image: ' . '<img src=' . "$this->image" . 'alt=" " width="200">'. '</li>';
+        echo '<li>' . 'Image: ' . '<img src=' . "$this->image" . 'alt="" width="200">'. '</li>';
         echo '<li>' . 'Poids: ' . $this->weight . '</li>';
         echo '<li>' . 'Quantity: ' . $this->quantity . '</li>';
         echo '<li>' . 'Dispo: ' . $this->available . '</li>' . '</ul>';
