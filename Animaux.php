@@ -3,8 +3,9 @@ require_once __DIR__. '/Article.php';
 
 class Animaux extends Article
 {
-        public $vaccin;
+        private $vaccin;
         public $sterile;
+        private $poilu;
 
 public function __construct($name,$description,$price,$image,$weight,$quantity,$available,string $vaccin,string $sterile)
 {
@@ -13,6 +14,17 @@ public function __construct($name,$description,$price,$image,$weight,$quantity,$
     parent::__construct($name, $description, $price, $image, $weight, $quantity, $available);
 
 }
+
+public function getVaccin(){
+    return $this->vaccin;
+}
+
+public function setPoilu($poilu){
+    $this->poilu=$poilu;
+}
+
+    public function getPoilu(){
+        return $this->poilu;}
 
     public function displayAnimaux(){
 
