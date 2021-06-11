@@ -3,7 +3,7 @@ include 'database.php';
 
 
 
-creation_produit($_POST["name"],$_POST["description"],$_POST["price"],$_POST["weight"],$_POST["image"],$_POST["quantity"],$_POST["available"],$_POST["categorie_id"]);
+creation_produit($_POST["name"],$_POST["description"],$_POST["price"],$_POST["weight"],$_POST["image"],$_POST["quantity"],$_POST["available"],$_POST["categorie_id"],$_POST['vaccin'],$_POST['sterile']);
 ?>
 
 <html lang="fr">
@@ -17,6 +17,8 @@ creation_produit($_POST["name"],$_POST["description"],$_POST["price"],$_POST["we
     <li>quantity:<?php echo $_POST['quantity']?></li>
     <li>Available:<?php echo $_POST['available']?></li>
     <li>Categorie id:<?php echo $_POST['categorie_id']?></li>
+    <li>Vacciné?:<?php echo $_POST['vaccin']?></li>
+    <li>Sterile?:<?php echo $_POST['sterile']?></li>
 
 </ul>
 

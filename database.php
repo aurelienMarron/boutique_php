@@ -49,10 +49,10 @@ ORDER BY customers.first_name DESC';
 
 
 
-function creation_produit($name,$description,$price,$weight,$image,$quantity,$available,$categorie_id){
+function creation_produit($name,$description,$price,$weight,$image,$quantity,$available,$categorie_id,$vaccin,$sterile){
     global $bdd;
-    $req=$bdd->prepare('INSERT INTO products(name,description,price,weight,image,quantity,available,categorie_id) 
-VALUES ( :name,:description,:price,:weight,:image,:quantity,:available,:categorie_id)');
+    $req=$bdd->prepare('INSERT INTO products(name,description,price,weight,image,quantity,available,categorie_id,vaccin,sterile) 
+VALUES ( :name,:description,:price,:weight,:image,:quantity,:available,:categorie_id,:vaccin,:sterile)');
     $req->execute(array(
         'name'=>$name,
         'description'=>$description,
@@ -61,7 +61,9 @@ VALUES ( :name,:description,:price,:weight,:image,:quantity,:available,:categori
         'image'=>$image,
         'quantity'=>$quantity,
         'available'=>$available,
-        'categorie_id'=>$categorie_id));
+        'categorie_id'=>$categorie_id,
+    'vaccin'=>$vaccin,
+        'sterile'=>$sterile));
     echo $name .  ' a bien été ajouté';
     $req->closeCursor();
 }

@@ -16,6 +16,8 @@ include 'database.php';
             <li><input type="number" name="quantity" placeholder="quantity" min="0"></li>
             <li><input type="number" name="available" placeholder="available" min="0" max="1"></li>
             <li> <input type="number" name="categorie_id" placeholder="categorie_id" min="0"></li>
+            <li> <input type="text" name="vaccin" placeholder="vaccin?"></li>
+            <li> <input type="text" name="sterile" placeholder="sterile?"></li>
     </label> </ul>
     <button type="submit" class="btn btn-dark btn-outline-light">Create product</button>
 </form>
