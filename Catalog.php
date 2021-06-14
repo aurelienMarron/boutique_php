@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__. '/Article.php';
 require_once __DIR__. '/Animaux.php';
+require_once __DIR__. '/database.php';
 class Catalog
 {
     public $articleArray = [];
@@ -28,10 +29,26 @@ class Catalog
     {
         foreach ($this->articleArray as $article) {
             if ($article instanceof Animaux) {
-                $article->displayAnimaux();
-            } else {
-                $article->displayArticle();
-            }
+                $article->displayAnimaux();?>
+                <html lang="fr">
+        <form method="post" action="affichagePanier.php">
+            <label>
+                <input type="hidden" name="info_produit" value="<?php echo info_produit();?>">
+            </label>
+            <button type="submit" class="btn btn-dark btn-outline-light">Ajouter au panier</button>
+        </form>
+        </html>
+            <?php } else {
+                $article->displayArticle();?>
+                <html lang="fr">
+        <form method="post" action="affichagePanier.php">
+            <label>
+                <input type="hidden" name="info_produit" value="<?php echo info_produit();?>">
+            </label>
+            <button type="submit" class="btn btn-dark btn-outline-light">Ajouter au panier</button>
+        </form>
+        </html>
+            <?php }
         }
-    }
-}
+     }
+}?>

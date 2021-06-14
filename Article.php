@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__. '/Animaux.php';
-
+require_once __DIR__. '/database.php';
 class Article
 {
     public $name;
@@ -29,8 +29,8 @@ class Article
         echo '<li>' . 'Image: ' . '<img src=' . "$this->image" .' '.  'alt="" width="200">'. '</li>';
         echo '<li>' . 'Poids: ' . $this->weight . '</li>';
         echo '<li>' . 'Quantity: ' . $this->quantity . '</li>';
-        echo '<li>' . 'Dispo: ' . $this->available . '</li>' . '</ul>';
+        echo '<li>' . 'Dispo: ' . $this->available . '</li></ul>'  ;
 
     }
 
-}
+}?>

@@ -11,7 +11,10 @@ function callquery($query){
     $produit = $bdd->query($query);
     return $produit->fetchAll(Pdo::FETCH_ASSOC);}
 
-
+function info_produit(){
+    $query='SELECT * FROM products';
+    return callquery($query);
+}
 
 
 function affiche_nom_produit(){
