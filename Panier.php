@@ -3,28 +3,25 @@
 
 class Panier
 {
-    public $quantiteCommande=0;
+    public $quantiteCommande;
    public $tableauPanier=[];
 
 
 public function add($article_id)
 {
-    /*if(!isset($tableauPanier[$article_id])){
-        $quantiteCommande=1;
-       $this->>tableauPanier=[$article_id=>$quantiteCommande];
+    if(isset( $this->tableauPanier[$article_id])){
+        $this->tableauPanier[$article_id]=$this->quantiteCommande+1;
     }
     else{
-        */$this->quantiteCommande=$this->quantiteCommande+1;
-       $this->tableauPanier[$article_id]=$this->quantiteCommande;
+        $this->quantiteCommande=1;
+        $this->tableauPanier[$article_id]=$this->quantiteCommande;
+    }
 
-
-    //}
-    //return $tableauPanier;
 }
 
-public function update($article_id,$quantiteAjoute){
-     $tableauPanier[$article_id]=$this->quantiteCommande+$quantiteAjoute;
-     return $tableauPanier;
+public function update($article_id,int $quantiteAjoute){
+     $this->tableauPanier[$article_id]=$this->tableauPanier[$article_id]+$quantiteAjoute;
+
 }
 
 public function delete($article_id){
