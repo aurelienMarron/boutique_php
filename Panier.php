@@ -19,7 +19,7 @@ public function add($article_id)
 
 }
 
-public function update($article_id,int $quantiteAjoute){
+public function update($article_id, $quantiteAjoute){
      $this->tableauPanier[$article_id]=$this->tableauPanier[$article_id]+$quantiteAjoute;
 
 }
@@ -31,7 +31,7 @@ public function delete($article_id){
 
 public function displayPanier(){
     foreach($this->tableauPanier as $produit_id=>$quantite){
-        echo 'Commande de ' . $quantite . ' produit numéro '. $produit_id . '<br>';
+        echo 'Commande de ' . $quantite . '<br>';
 
     }
 }

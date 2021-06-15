@@ -7,11 +7,11 @@ class Animaux extends Article
         public $sterile;
         private $poilu;
 
-public function __construct($name,$description,$price,$image,$weight,$quantity,$available,string $vaccin,string $sterile)
+public function __construct($id,$name,$description,$price,$image,$weight,$quantity,$available,string $vaccin,string $sterile)
 {
     $this->vaccin=$vaccin;
     $this->sterile=$sterile;
-    parent::__construct($name, $description, $price, $image, $weight, $quantity, $available);
+    parent::__construct($id, $name, $description, $price, $image, $weight, $quantity, $available);
 
 }
 
@@ -28,7 +28,8 @@ public function setPoilu($poilu){
 
     public function displayAnimaux(){
 
-        echo '<ul>' . '<li>' . 'Name: ' . $this->name . '</li>';
+        echo '<ul>' . '<li>' . 'Id: ' . $this->id . '</li>';
+        echo '<li>' . 'Name: ' . $this->name . '</li>';
         echo '<li>' . 'Description: ' . $this->description . '</li>';
         echo '<li>' . 'Prix: ' . $this->price . '</li>';
         echo '<li>' . 'Image: ' . '<img src=' . "$this->image" .' '. 'alt="" width="200">'. '</li>';

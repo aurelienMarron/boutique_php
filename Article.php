@@ -3,6 +3,7 @@ require_once __DIR__. '/Animaux.php';
 require_once __DIR__. '/database.php';
 class Article
 {
+    public $id;
     public $name;
     public $description;
     public $price;
@@ -11,7 +12,8 @@ class Article
     public $quantity;
     public $available;
 
-    public function __construct(string $name,string $descritpion,int $price,string $image,int $weight,int $quantity,bool $available){
+    public function __construct(int $id,string $name,string $descritpion,int $price,string $image,int $weight,int $quantity,bool $available){
+        $this->id=$id;
         $this->name=$name;
         $this->description=$descritpion;
         $this->price=$price;
@@ -23,7 +25,8 @@ class Article
 
     public function displayArticle(){
 
-        echo '<ul>' . '<li>' . 'Name: ' . $this->name . '</li>';
+        echo '<ul>' . '<li>' . 'Id: ' . $this->id . '</li>';
+        echo '<li>' . 'Name: ' . $this->name . '</li>';
         echo '<li>' . 'Description: ' . $this->description . '</li>';
         echo '<li>' . 'Prix: ' . $this->price . '</li>';
         echo '<li>' . 'Image: ' . '<img src=' . "$this->image" .' '.  'alt="" width="200">'. '</li>';
